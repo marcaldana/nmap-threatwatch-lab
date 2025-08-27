@@ -7,20 +7,26 @@ This lab simulates a basic threat detection workflow using Nmap and Python. It s
 
 This lab was built and tested using:
 
-- **Kali Linux 2023.2** running inside a **VMware Workstation** virtual machine
-- Python 3.13 and Nmap 7.95
-- Local HTTP server on port 8080 for scan simulation
+## 🛠️ Tools Used
 
-Using Kali in a VM ensures a safe, isolated environment for testing and documentation, and mirrors real-world penetration testing setups.
+- Python 3.11
+- Nmap 7.95
+- Kali Linux
+- VMware Workstation
 
 ## 🔧 Lab Workflow
 
 1. Start a Python HTTP server on port 8080
+![HTTP Server] (Start_python_server_8.png)
+
 2. Run an Nmap scan and save output to XML
+![Nmap Scan](Nmap scan.png)
+
 3. Parse the XML using Python to extract:
+![Parser Output](Run_python_parser.png)
    - Host status
    - Port number and protocol
    - Service name and version
-4. Display results in terminal
+5. Display results in terminal
 
 
