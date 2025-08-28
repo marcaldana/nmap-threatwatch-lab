@@ -20,9 +20,43 @@ This lab was built and tested using:
 ![HTTP Server](Start_python_server_8080.png)
 
 2. Run an Nmap scan and save output to XML
+
+Command Broken Down: nmap -sS -sV -O -p 8080 -oX scan8080.xml 127.0.0.1
+
+nmap: Lanches the Nmap tool
+-sV: Enables Service Verison Detection - identifies the software and version running on the port
+-O: OS detection – attempts to fingerprint the operating system
+-p 8080: Port specification – limits the scan to port 8080 (where your Python HTTP server is running)
+-oX scan8080.xml: Output to XML – saves the scan results in XML format for parsing
+127.0.0.1 Target IP – scans the localhost (your Kali VM itself)
 ![Nmap Scan](Nmap_scan.png)
 
+📁 Why This Scan Is Useful
+- Targets a live service you control (Python HTTP server)
+- Produces structured XML output for your parser
+- Simulates a real-world threat detection workflow
+- Keeps the scope tight and reproducible for documentation
+
 3. Parse the XML using Python to extract:
+
+Command: cd ~/nmap-threatwatch-lab
+🧠 Why This Step Matters
+• 	Ensures the HTTP server serves content from your lab directory
+• 	Allows Python scripts to locate scan files and output folders
+• 	Keeps your workflow organized and reproducible
+
+Command parse_nmap.py 
+
+🧠 What parse_nmap.py Actually Does
+- Opens the Nmap XML file
+It reads scan8080.xml (or whatever file is hardcoded or passed in) to access the scan results.
+- Parses the XML structure
+It uses a module like xml.etree.ElementTree to extract key data from the scan:
+- Host status (e.g., up/down)
+- Port number and protocol (e.g., 8080/tcp)
+- Service name and version (e.g., http, Python HTTP server)
+- Prints the results to the terminal
+
 ![Parser Output](Run_python_parser.png)
    - Host status
    - Port number and protocol
