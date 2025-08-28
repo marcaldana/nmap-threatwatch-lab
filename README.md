@@ -17,7 +17,7 @@ This lab was built and tested using:
 ## 🔧 Lab Workflow
 
 1. Start a Python HTTP server on port 8080
-![HTTP Server](Start_python_server_8.png)
+![HTTP Server](Start_python_server_8080.png)
 
 2. Run an Nmap scan and save output to XML
 ![Nmap Scan](Nmap_scan.png)
