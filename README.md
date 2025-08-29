@@ -103,6 +103,9 @@ Unmatched services:
 - Highlights XML parsing, CVSS scoring, and service fingerprinting
 - Built with reproducibility and documentation in mind
 
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 
 
