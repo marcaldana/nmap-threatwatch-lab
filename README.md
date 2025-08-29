@@ -1,3 +1,7 @@
+## 📌 Project Summary
+
+This lab showcases a hands-on cybersecurity workflow using Nmap and Python to simulate real-world threat detection. It features a custom XML parser that extracts scan data, maps services to CVSS scores and CVEs, and flags unmatched services for future analysis. Designed for reproducibility, documentation clarity, and portfolio impact.
+
 # nmap-threatwatch-lab
 Python-based Nmap lab for port scanning, service detection, and XML parsing. Built for Security+ learning, ThreatWatch integration, and portfolio impact.
 
@@ -9,10 +13,11 @@ This lab was built and tested using:
 
 ## 🛠️ Tools Used
 
+- Kali Linux (VM on VMware Workstation)
 - Python 3.11
 - Nmap 7.95
-- Kali Linux
-- VMware Workstation
+- Localhost target (127.0.0.1)
+
 
 ## 🔧 Lab Workflow
 
@@ -62,5 +67,42 @@ It uses a module like xml.etree.ElementTree to extract key data from the scan:
    - Port number and protocol
    - Service name and version
 5. Display results in terminal
+
+![Python Code](Python_parse_lab1.png)
+
+----------------------------------------------------------------------------------------------------------------------
+
+
+### Sample Output:
+Parsing scan8080.xml...
+Host status: up
+Port 8080/tcp is open running http
+→ CVSS Score: 8.2 (High) – CVE-2022-12345
+Unmatched services:
+- fakeService123
+
+## 🚀 How to Run
+
+1. Start the HTTP server:
+   (Bash)
+   python3 -m http.server 8080
+
+2. Run the Nmap scan:
+  (Bash)
+  nmap -sS -sV -O -p 8080 -oX scan8080.xml 127.0.0.1
+
+3. Parse the results:
+  python3 parse_nmap.py scan8080.xml
+
+4. Review CVSS scoring and unmatched services in the terminal.
+
+ 🎯 Why This Lab Matters
+
+- Demonstrates hands-on cybersecurity skills
+- Shows ability to automate threat detection workflows
+- Highlights XML parsing, CVSS scoring, and service fingerprinting
+- Built with reproducibility and documentation in mind
+
+
 
 
