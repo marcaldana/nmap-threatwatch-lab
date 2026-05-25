@@ -68,7 +68,7 @@ It uses a module like xml.etree.ElementTree to extract key data from the scan:
    - Service name and version
 5. Display results in terminal
 
-![Python Code](Python_parse_lab1.png)
+![Python Code](python_parse_lab1.png)
 
 ----------------------------------------------------------------------------------------------------------------------
 
