@@ -42,34 +42,30 @@ nmap: Lanches the Nmap tool
 - Simulates a real-world threat detection workflow
 - Keeps the scope tight and reproducible for documentation
 
-3. Parse the XML using Python to extract:
+### 3. Parse the XML using Python
 
-Command: cd ~/nmap-threatwatch-lab
-🧠 Why This Step Matters
-• 	Ensures the HTTP server serves content from your lab directory
-• 	Allows Python scripts to locate scan files and output folders
-• 	Keeps your workflow organized and reproducible
+**Command:** `cd ~/nmap-threatwatch-lab`
 
-Command parse_nmap.py 
+#### 🧠 Why This Step Matters
+* Ensures the script executes inside your dedicated lab directory.
+* Allows Python scripts to locate scan files and output folders locally.
+* Keeps your workflow organized and reproducible.
 
-🧠 What parse_nmap.py Actually Does
-- Opens the Nmap XML file
-It reads scan8080.xml (or whatever file is hardcoded or passed in) to access the scan results.
-- Parses the XML structure
-It uses a module like xml.etree.ElementTree to extract key data from the scan:
-- Host status (e.g., up/down)
-- Port number and protocol (e.g., 8080/tcp)
-- Service name and version (e.g., http, Python HTTP server)
-- Prints the results to the terminal
+**Command:** `python3 nmap_threatwatch.py`
 
-![Parser Output](Run_python_parser.png)
-   - Host status
-   - Port number and protocol
-   - Service name and version
-5. Display results in terminal
+#### 🧠 What the Script Actually Does
+* **Opens the Nmap XML file:** Reads `scan8080.xml` to access the raw scan findings.
+* **Parses the XML structure:** Uses the `xml.etree.ElementTree` module to extract key security data:
+  * Host status (e.g., up/down)
+  * Port number and protocol (e.g., 8080/tcp)
+  * Service name and version (e.g., http, Python HTTP server)
+* **Analyzes Threat Data:** Evaluates service details against high-severity CVE criteria and flags risk metrics to the terminal.
 
-![Python Code](python_parse_lab1.png)
+### 4. Sample Output
 
+```text
+Parsing scan8080.xml... Host status: up Port 8080/tcp is open running http → CVSS Score: 8.2 (High) – CVE-2022-12345
+```
 ----------------------------------------------------------------------------------------------------------------------
 
 
